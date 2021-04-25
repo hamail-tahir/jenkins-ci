@@ -10,9 +10,9 @@ pipeline {
         choice(name: 'IMAGE_TYPE', choices: ['optimized', 'debug'], description: 'Image type to build')
     }
 
-    // agent {
-    //     label "docker"
-    // }
+    agent {
+        // label "docker"
+    }
 
     stages {
         stage('Set Up Stage') {
