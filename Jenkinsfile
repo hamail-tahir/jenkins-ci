@@ -10,9 +10,9 @@ pipeline {
         choice(name: 'IMAGE_TYPE', choices: ['optimized', 'debug'], description: 'Image type to build')
     }
 
-    agent {
-        label "docker"
-    }
+    // agent {
+    //     label "docker"
+    // }
 
     stages {
         stage('Set Up Stage') {
@@ -52,7 +52,7 @@ pipeline {
         }
 
         stage('Push to Sonarqube') {
-            agent { label "master" }
+            // agent { label "master" }
             when {
                 anyOf {
                     branch 'master'
@@ -80,7 +80,7 @@ pipeline {
         }
 
         stage('Deploy') {
-            agent { label "master" }
+            // agent { label "master" }
             when {
                 anyOf {
                     branch 'master'
