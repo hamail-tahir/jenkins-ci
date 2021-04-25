@@ -17,35 +17,37 @@ pipeline {
     stages {
         stage('Set Up Stage') {
             steps {
-         
+                echo "Stage 1"
             }
         }
 
         stage('Setup Project') {
             steps {
-                
+                echo "Stage 2"
             }
         }
 
         stage('Static-Code Analysis') {
             steps {
+                echo "Stage 3"
                             }
         }
 
         stage('Unit- / Integration-Tests') {
             steps {
-                
+                echo "Stage 4"
             }
         }
 
         stage('Contract-Tests') {
             steps {
-              
+              echo "Stage 5"
             }
         }
 
         stage('Stash Build Sources') {
             steps {
+                echo "Stage 6"
             }
         }
 
@@ -59,7 +61,7 @@ pipeline {
                 }
             }
             steps {
-                unstash 'buildSources'
+               echo "push to SC"
                
             }
         }
@@ -73,7 +75,7 @@ pipeline {
                 }
             }
             steps {
-               
+               echo "Container making"
             }
         }
 
@@ -87,11 +89,9 @@ pipeline {
             }
             steps {
                 script {
-                   
+                   echo "Deployed"
                 }
-                script {
-                    
-                }
+      
             }
         }
 
@@ -99,7 +99,7 @@ pipeline {
 
     post {
         always {
-            sh ""
+            sh "end"
         }
       
     }
